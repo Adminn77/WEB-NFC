@@ -6,7 +6,7 @@ const explainBox = document.getElementById("nfcExplain");
 const uidBox = document.getElementById("uid");
 const readDataBox = document.getElementById("readData");
 
-/* ===== RESET UI (TAMBAHAN, TIDAK UBAH LOGIKA) ===== */
+/* ===== RESET UI (TIDAK UBAH LOGIKA NFC) ===== */
 function resetScanUI() {
   uidBox.textContent = "-";
   readDataBox.textContent = "Belum ada data";
@@ -15,14 +15,23 @@ function resetScanUI() {
   window.secureCardDetected = false;
 }
 
-/* ===== OPEN MODAL ===== */
+/* ===== OPEN MODAL SCAN (DESKTOP) ===== */
 document.getElementById("btnMulai").onclick = () => {
   scanModal.classList.remove("hidden");
-  resetScanUI(); // hanya reset tampilan
+  resetScanUI();
 };
 
-document.getElementById("openWrite").onclick = () =>
+/* ===== OPEN MODAL SCAN (MOBILE) ===== */
+document.getElementById("btnMulaiMobile").onclick = () => {
+  scanModal.classList.remove("hidden");
+  resetScanUI();
+};
+
+/* ===== OPEN WRITE MODAL ===== */
+document.getElementById("openWrite").onclick = (e) => {
+  e.preventDefault(); // PENTING
   writeModal.classList.remove("hidden");
+};
 
 /* ===== CLOSE MODAL ===== */
 document.querySelectorAll(".close").forEach(btn =>
@@ -32,9 +41,9 @@ document.querySelectorAll(".close").forEach(btn =>
   }
 );
 
-// ===== SCAN =====
+/* ===== SCAN NFC ===== */
 document.getElementById("scanBtn").onclick = async () => {
-  resetScanUI(); // penting: bersih sebelum scan
+  resetScanUI();
 
   try {
     const ndef = new NDEFReader();
@@ -73,11 +82,11 @@ document.getElementById("scanBtn").onclick = async () => {
       }
     };
   } catch {
-    alert("NFC tidak didukung");
+    alert("NFC tidak didukung di perangkat ini");
   }
 };
 
-// ===== WRITE =====
+/* ===== WRITE NFC ===== */
 document.getElementById("prepareWrite").onclick = async () => {
   if (window.secureCardDetected) {
     alert(
