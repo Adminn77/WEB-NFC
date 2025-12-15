@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 <header class="navbar">
   <div class="logo">🔷 NFC-Scan</div>
 
@@ -18,16 +18,25 @@
     <a href="#" id="openWrite">Write</a>
   </nav>
 
+  <!-- CTA DESKTOP -->
   <button id="btnMulai" class="cta">Mulai Pindai</button>
 </header>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <section class="hero">
   <h1>NFC-SCAN:<br>Pindai & Kartu Digitalmu.</h1>
+
   <p>
     Platform web untuk membaca dan menulis data kartu NFC langsung
     melalui browser.
   </p>
+
+  <!-- CTA MOBILE -->
+  <div class="hero-cta-mobile">
+    <button id="btnMulaiMobile" class="cta cta-mobile">
+      Mulai Pindai
+    </button>
+  </div>
 </section>
 
 <!-- ================= MODAL SCAN ================= -->
@@ -42,15 +51,14 @@
     <p><strong>Isi Data NFC:</strong></p>
     <pre id="readData" class="box">Belum ada data</pre>
 
-    <!-- 🔴 WARNING BARU -->
     <div id="nfcWarning" class="warning hidden">
       ⚠️ Kartu ini tidak dapat digunakan.
-      Kemungkinan merupakan kartu ATM, e-KTP, atau kartu aman lainnya.
-    </div>
+          Kemungkinan merupakan kartu ATM, e-KTP, atau kartu aman lainnya.
+      </div>
 
     <p id="nfcExplain" class="explain hidden">
-      Kartu ini menggunakan <strong>Secure Element</strong> dan data terenkripsi,
-      sehingga tidak dapat diakses melalui Web NFC API demi keamanan.
+       Kartu ini menggunakan <strong>Secure Element</strong> dan data terenkripsi,
+       sehingga tidak dapat diakses melalui Web NFC API demi keamanan.
     </p>
 
     <button class="close">Tutup</button>
@@ -79,19 +87,22 @@
   </div>
 </div>
 
-<!-- CARA KERJA -->
+<!-- ================= CARA KERJA ================= -->
 <section id="cara" class="cara-kerja">
   <div class="container center">
     <h2>Cara Kerja</h2>
+
     <div class="steps">
       <div class="step">
         <h3>📡 Pindai</h3>
         <p>Tempelkan kartu NFC ke perangkat.</p>
       </div>
+
       <div class="step">
         <h3>✍️ Tulis</h3>
         <p>Masukkan data lalu tulis ke kartu.</p>
       </div>
+
       <div class="step">
         <h3>🔓 Gunakan</h3>
         <p>Akses kartu NFC kapan saja.</p>
@@ -100,20 +111,20 @@
   </div>
 </section>
 
-<!-- FITUR -->
+<!-- ================= FITUR ================= -->
 <section id="fitur" class="fitur-unggulan">
   <div class="container center">
     <h2>Fitur Unggulan</h2>
 
     <div class="fitur-grid">
       <div class="fitur-card">
-        <h3>🔒 Keamanan Data Terjamin</h3>
-        <p>Enkripsi melindungi data kartu NFC.</p>
+        <h3>🔒 Keamanan Data</h3>
+        <p>Data NFC terlindungi dengan enkripsi.</p>
       </div>
 
       <div class="fitur-card">
         <h3>🔗 Integrasi Mudah</h3>
-        <p>Bekerja dengan sistem lain.</p>
+        <p>Bisa digunakan untuk berbagai sistem.</p>
       </div>
     </div>
   </div>
