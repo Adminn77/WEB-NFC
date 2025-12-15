@@ -267,3 +267,17 @@ select {
   visibility: hidden !important;
   opacity: 0 !important;
 }
+.hero-cta-mobile {
+  position: relative;
+  z-index: 20;
+}
+@media (max-width: 600px) {
+  .navbar {
+    position: relative;
+    z-index: 10;
+  }
+}
+.hero {
+  position: relative;
+  z-index: 1;
+}
