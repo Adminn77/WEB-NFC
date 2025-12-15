@@ -1,0 +1,239 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  color: #f8fafc;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 60px;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+nav a {
+  color: #cbd5f5;
+  margin: 0 16px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+.cta {
+  background: linear-gradient(135deg, #06b6d4, #38bdf8);
+  border: none;
+  padding: 12px 26px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* ================= HERO ================= */
+.hero {
+  padding: 120px 60px 90px;
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #38bdf8, #06b6d4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 17px;
+  color: #cbd5f5;
+  max-width: 520px;
+}
+
+/* ================= MODAL ================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.65);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-box {
+  background: #f8fafc;
+  color: #0f172a;
+  padding: 30px;
+  width: 420px;
+  border-radius: 18px;
+}
+
+.modal-box h3 {
+  color: #0284c7;
+  margin-bottom: 14px;
+}
+
+.modal-box button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 14px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #06b6d4, #38bdf8);
+  color: #0f172a;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.modal-box .close {
+  background: #94a3b8;
+}
+
+textarea,
+select {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5f5;
+}
+
+.box {
+  background: #e0f2fe;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  color: #0f172a;
+}
+
+.status {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* ================= WARNING ================= */
+.warning {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #fee2e2;
+  color: #7f1d1d;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #fecaca;
+  animation: shake .35s ease;
+}
+
+.explain {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #7c2d12;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}
+
+/* ================= SECTION ================= */
+.cara-kerja,
+.fitur-unggulan {
+  padding: 100px 0;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 60px;
+}
+
+.container.center {
+  margin: 0 auto;
+}
+
+/* ================= CARA KERJA ================= */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.step {
+    margin-top: 30px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  padding: 28px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+/* ================= FITUR ================= */
+.fitur-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ================= FITUR CARD ================= */
+.fitur-card {
+    margin-top: 30px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  padding: 28px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+  text-align: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.fitur-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .steps,
+  .fitur-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 0 24px;
+  }
+}
