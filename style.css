@@ -20,6 +20,11 @@ body {
   padding: 22px 60px;
   background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(10px);
+  position: fixed;              /* desktop fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 .logo {
@@ -49,14 +54,19 @@ nav a:hover {
 
 /* ================= HERO ================= */
 .hero {
-  padding: 120px 60px 80px;
+  padding: 120px 60px 80px;     /* aman karena navbar fixed */
   max-width: 900px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
+  font-size: 52px;
+  line-height: 1.2;
+  margin-bottom: 16px;
   background: linear-gradient(135deg, #38bdf8, #06b6d4);
-  background-clip: text;              /* standard */
-  -webkit-background-clip: text;      /* safari / chrome lama */
+  background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
 }
@@ -67,7 +77,7 @@ nav a:hover {
   max-width: 520px;
 }
 
-/* CTA MOBILE (hidden by default) */
+/* CTA MOBILE (default hidden) */
 .hero-cta-mobile {
   display: none;
   margin-top: 28px;
@@ -82,7 +92,7 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 99;
+  z-index: 999; /* DI ATAS SEMUA */
 }
 
 .modal.hidden {
@@ -94,6 +104,7 @@ nav a:hover {
   color: #0f172a;
   padding: 30px;
   width: 420px;
+  max-width: 90%;
   border-radius: 18px;
 }
 
@@ -145,7 +156,16 @@ select {
   font-size: 14px;
   font-weight: 600;
   border: 1px solid #fecaca;
-  display: block;
+}
+
+.explain {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #7c2d12;
+}
+
+.hidden {
+  display: none !important;
 }
 
 /* ================= SECTION ================= */
@@ -207,17 +227,18 @@ select {
   }
 }
 
-/* ================= MOBILE ================= */
+/* ================= MOBILE (FINAL FIX) ================= */
 @media (max-width: 600px) {
 
-  /* NAVBAR */
+  /* NAVBAR TIDAK FIXED DI MOBILE */
   .navbar {
+    position: static;
     padding: 16px 20px;
     flex-direction: column;
     gap: 10px;
   }
 
-  /* SEMBUNYIKAN CTA DI NAVBAR */
+  /* SEMBUNYIKAN CTA NAVBAR */
   .navbar .cta {
     display: none;
   }
@@ -229,7 +250,7 @@ select {
 
   /* HERO */
   .hero {
-    padding: 80px 20px 60px;
+    padding: 40px 20px 60px;
   }
 
   .hero h1 {
@@ -241,7 +262,7 @@ select {
     font-size: 15px;
   }
 
-  /* CTA DI HERO */
+  /* CTA MOBILE */
   .hero-cta-mobile {
     display: block;
   }
@@ -253,7 +274,6 @@ select {
     font-size: 15px;
   }
 
-  /* SECTION SPACING */
   .cara-kerja {
     padding-top: 60px;
   }
@@ -261,23 +281,4 @@ select {
   .container {
     padding: 0 20px;
   }
-}
-.hidden {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-}
-.hero-cta-mobile {
-  position: relative;
-  z-index: 20;
-}
-@media (max-width: 600px) {
-  .navbar {
-    position: relative;
-    z-index: 10;
-  }
-}
-.hero {
-  position: relative;
-  z-index: 1;
 }
