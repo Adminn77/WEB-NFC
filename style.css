@@ -41,7 +41,7 @@ nav a:hover {
   background: linear-gradient(135deg, #06b6d4, #38bdf8);
   border: none;
   padding: 12px 26px;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
   font-weight: 600;
   color: #0f172a;
@@ -49,17 +49,14 @@ nav a:hover {
 
 /* ================= HERO ================= */
 .hero {
-  padding: 120px 60px 90px;
+  padding: 120px 60px 80px;
   max-width: 900px;
 }
 
 .hero h1 {
-  font-size: 52px;
-  line-height: 1.2;
-  margin-bottom: 16px;
   background: linear-gradient(135deg, #38bdf8, #06b6d4);
-  background-clip: text;
-  -webkit-background-clip: text;
+  background-clip: text;              /* standard */
+  -webkit-background-clip: text;      /* safari / chrome lama */
   color: transparent;
   -webkit-text-fill-color: transparent;
 }
@@ -68,6 +65,12 @@ nav a:hover {
   font-size: 17px;
   color: #cbd5f5;
   max-width: 520px;
+}
+
+/* CTA MOBILE (hidden by default) */
+.hero-cta-mobile {
+  display: none;
+  margin-top: 28px;
 }
 
 /* ================= MODAL ================= */
@@ -132,11 +135,6 @@ select {
   color: #0f172a;
 }
 
-.status {
-  margin-top: 10px;
-  font-weight: 600;
-}
-
 /* ================= WARNING ================= */
 .warning {
   margin-top: 12px;
@@ -147,31 +145,13 @@ select {
   font-size: 14px;
   font-weight: 600;
   border: 1px solid #fecaca;
-  animation: shake .35s ease;
-}
-
-.explain {
-  margin-top: 6px;
-  font-size: 13px;
-  color: #7c2d12;
-}
-
-.hidden {
-  display: none;
-}
-
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-4px); }
-  50% { transform: translateX(4px); }
-  75% { transform: translateX(-4px); }
-  100% { transform: translateX(0); }
+  display: block;
 }
 
 /* ================= SECTION ================= */
 .cara-kerja,
 .fitur-unggulan {
-  padding: 100px 0;
+  padding: 90px 0;
 }
 
 .container {
@@ -183,17 +163,16 @@ select {
   margin: 0 auto;
 }
 
-/* ================= CARA KERJA ================= */
+/* ================= CARDS ================= */
 .steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
-  max-width: 1100px;
-  margin: 0 auto;
+  margin-top: 40px;
 }
 
-.step {
-  margin-top: 30px;
+.step,
+.fitur-card {
   background: rgba(255,255,255,0.12);
   backdrop-filter: blur(12px);
   padding: 28px;
@@ -201,81 +180,56 @@ select {
   text-align: center;
 }
 
-/* ================= FITUR ================= */
 .fitur-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
-  max-width: 900px;
-  margin: 0 auto;
+  margin-top: 40px;
 }
 
-/* ================= FITUR CARD ================= */
-.fitur-card {
-  margin-top: 30px;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
-  padding: 28px;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.15);
-  text-align: center;
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-
-.fitur-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-}
-
-/* ================= RESPONSIVE TABLET ================= */
+/* ================= TABLET ================= */
 @media (max-width: 900px) {
   .steps,
   .fitur-grid {
     grid-template-columns: 1fr;
   }
 
-  .container {
-    padding: 0 24px;
-  }
-
   .hero {
-    padding: 100px 24px 80px;
+    padding: 100px 24px 70px;
   }
 
   .hero h1 {
     font-size: 42px;
   }
+
+  .container {
+    padding: 0 24px;
+  }
 }
 
-/* ================= RESPONSIVE MOBILE ================= */
+/* ================= MOBILE ================= */
 @media (max-width: 600px) {
 
   /* NAVBAR */
   .navbar {
-    flex-direction: column;
     padding: 16px 20px;
-    gap: 12px;
+    flex-direction: column;
+    gap: 10px;
   }
 
-  nav {
-    display: flex;
-    gap: 14px;
+  /* SEMBUNYIKAN CTA DI NAVBAR */
+  .navbar .cta {
+    display: none;
   }
 
   nav a {
-    margin: 0;
     font-size: 14px;
-  }
-
-  .cta {
-    padding: 10px 20px;
-    font-size: 14px;
+    margin: 0 8px;
   }
 
   /* HERO */
   .hero {
-    padding: 90px 20px 70px;
-    max-width: 100%;
+    padding: 80px 20px 60px;
   }
 
   .hero h1 {
@@ -285,35 +239,31 @@ select {
 
   .hero p {
     font-size: 15px;
-    max-width: 100%;
   }
 
-  /* SECTION */
-  .cara-kerja,
-  .fitur-unggulan {
-    padding: 70px 0;
+  /* CTA DI HERO */
+  .hero-cta-mobile {
+    display: block;
+  }
+
+  .cta-mobile {
+    width: 100%;
+    max-width: 260px;
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  /* SECTION SPACING */
+  .cara-kerja {
+    padding-top: 60px;
   }
 
   .container {
     padding: 0 20px;
   }
-
-  /* CARD */
-  .step,
-  .fitur-card {
-    margin-top: 0;
-    padding: 22px;
-    border-radius: 16px;
-  }
-
-  /* MODAL */
-  .modal-box {
-    width: 90%;
-    padding: 22px;
-  }
-
-  textarea,
-  select {
-    font-size: 14px;
-  }
+}
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
