@@ -1,12 +1,30 @@
 const scanModal = document.getElementById("scanModal");
 const writeModal = document.getElementById("writeModal");
 
-document.getElementById("btnMulai").onclick = () =>
+const warningBox = document.getElementById("nfcWarning");
+const explainBox = document.getElementById("nfcExplain");
+const uidBox = document.getElementById("uid");
+const readDataBox = document.getElementById("readData");
+
+/* ===== RESET UI (TAMBAHAN, TIDAK UBAH LOGIKA) ===== */
+function resetScanUI() {
+  uidBox.textContent = "-";
+  readDataBox.textContent = "Belum ada data";
+  warningBox.classList.add("hidden");
+  explainBox.classList.add("hidden");
+  window.secureCardDetected = false;
+}
+
+/* ===== OPEN MODAL ===== */
+document.getElementById("btnMulai").onclick = () => {
   scanModal.classList.remove("hidden");
+  resetScanUI(); // hanya reset tampilan
+};
 
 document.getElementById("openWrite").onclick = () =>
   writeModal.classList.remove("hidden");
 
+/* ===== CLOSE MODAL ===== */
 document.querySelectorAll(".close").forEach(btn =>
   btn.onclick = () => {
     scanModal.classList.add("hidden");
@@ -16,18 +34,14 @@ document.querySelectorAll(".close").forEach(btn =>
 
 // ===== SCAN =====
 document.getElementById("scanBtn").onclick = async () => {
+  resetScanUI(); // penting: bersih sebelum scan
+
   try {
     const ndef = new NDEFReader();
     await ndef.scan();
 
     ndef.onreading = (e) => {
-      document.getElementById("uid").textContent = e.serialNumber || "-";
-
-      const warningBox = document.getElementById("nfcWarning");
-      const explainBox = document.getElementById("nfcExplain");
-
-      warningBox.classList.add("hidden");
-      explainBox.classList.add("hidden");
+      uidBox.textContent = e.serialNumber || "-";
 
       let data = "";
       const decoder = new TextDecoder();
@@ -39,7 +53,7 @@ document.getElementById("scanBtn").onclick = async () => {
         }
 
         if (!data.trim()) {
-          document.getElementById("readData").textContent =
+          readDataBox.textContent =
             "Data tidak dapat dibaca atau terenkripsi.";
           warningBox.classList.remove("hidden");
           explainBox.classList.remove("hidden");
@@ -47,11 +61,11 @@ document.getElementById("scanBtn").onclick = async () => {
           return;
         }
 
-        document.getElementById("readData").textContent = data;
+        readDataBox.textContent = data;
         window.secureCardDetected = false;
 
       } catch {
-        document.getElementById("readData").textContent =
+        readDataBox.textContent =
           "Format kartu tidak didukung.";
         warningBox.classList.remove("hidden");
         explainBox.classList.remove("hidden");
