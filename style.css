@@ -18,52 +18,75 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 22px 60px;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(10px);
-  position: fixed;              /* desktop fixed */
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .logo {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 18px;
+  letter-spacing: 0.5px;
 }
 
+/* ================= NAV ================= */
 nav a {
   color: #cbd5f5;
   margin: 0 16px;
   text-decoration: none;
+  font-weight: 500;
 }
 
 nav a:hover {
   color: #38bdf8;
 }
 
+/* ================= NAV ACTIONS (DESKTOP) ================= */
+.nav-actions {
+  display: flex;
+  gap: 14px;
+}
+
+/* ================= BUTTON ================= */
 .cta {
   background: linear-gradient(135deg, #06b6d4, #38bdf8);
   border: none;
   padding: 12px 26px;
   border-radius: 14px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   color: #0f172a;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(56,189,248,0.25);
+}
+
+/* REGISTER / WRITE */
+.cta-write {
+  background: linear-gradient(135deg, #22c55e, #4ade80);
 }
 
 /* ================= HERO ================= */
 .hero {
-  padding: 120px 60px 80px;     /* aman karena navbar fixed */
-  max-width: 900px;
+  padding: 140px 60px 90px;
+  max-width: 950px;
   position: relative;
   z-index: 1;
 }
 
 .hero h1 {
-  font-size: 52px;
-  line-height: 1.2;
-  margin-bottom: 16px;
+  font-size: 46px;
+  line-height: 1.25;
+  margin-bottom: 18px;
+  font-weight: 800;
   background: linear-gradient(135deg, #38bdf8, #06b6d4);
   background-clip: text;
   -webkit-background-clip: text;
@@ -74,25 +97,25 @@ nav a:hover {
 .hero p {
   font-size: 17px;
   color: #cbd5f5;
-  max-width: 520px;
+  max-width: 620px;
 }
 
-/* CTA MOBILE (default hidden) */
+/* ================= HERO CTA MOBILE ================= */
 .hero-cta-mobile {
   display: none;
-  margin-top: 28px;
+  margin-top: 30px;
 }
 
 /* ================= MODAL ================= */
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(2, 6, 23, 0.65);
-  backdrop-filter: blur(8px);
+  background: rgba(2, 6, 23, 0.7);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999; /* DI ATAS SEMUA */
+  z-index: 999;
 }
 
 .modal.hidden {
@@ -104,13 +127,15 @@ nav a:hover {
   color: #0f172a;
   padding: 30px;
   width: 420px;
-  max-width: 90%;
+  max-width: 92%;
   border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
 }
 
 .modal-box h3 {
-  color: #0284c7;
-  margin-bottom: 14px;
+  color: #0369a1;
+  margin-bottom: 16px;
+  font-weight: 700;
 }
 
 .modal-box button {
@@ -122,13 +147,14 @@ nav a:hover {
   background: linear-gradient(135deg, #06b6d4, #38bdf8);
   color: #0f172a;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .modal-box .close {
   background: #94a3b8;
 }
 
+/* ================= FORM ================= */
 textarea,
 select {
   width: 100%;
@@ -136,14 +162,17 @@ select {
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #cbd5f5;
+  font-size: 14px;
 }
 
+/* ================= DATA BOX ================= */
 .box {
   background: #e0f2fe;
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 12px;
   color: #0f172a;
+  font-size: 14px;
 }
 
 /* ================= WARNING ================= */
@@ -181,6 +210,7 @@ select {
 
 .container.center {
   margin: 0 auto;
+  text-align: center;
 }
 
 /* ================= CARDS ================= */
@@ -194,10 +224,23 @@ select {
 .step,
 .fitur-card {
   background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(12px);
-  padding: 28px;
-  border-radius: 20px;
+  backdrop-filter: blur(14px);
+  padding: 30px;
+  border-radius: 22px;
   text-align: center;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.step h3,
+.fitur-card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.step p,
+.fitur-card p {
+  font-size: 14px;
+  color: #e2e8f0;
 }
 
 .fitur-grid {
@@ -215,11 +258,11 @@ select {
   }
 
   .hero {
-    padding: 100px 24px 70px;
+    padding: 110px 24px 80px;
   }
 
   .hero h1 {
-    font-size: 42px;
+    font-size: 40px;
   }
 
   .container {
@@ -227,19 +270,18 @@ select {
   }
 }
 
-/* ================= MOBILE (FINAL FIX) ================= */
+/* ================= MOBILE (FIX TOTAL) ================= */
 @media (max-width: 600px) {
 
-  /* NAVBAR TIDAK FIXED DI MOBILE */
   .navbar {
     position: static;
     padding: 16px 20px;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
 
-  /* SEMBUNYIKAN CTA NAVBAR */
-  .navbar .cta {
+  /* SEMBUNYIKAN NAVBAR CTA */
+  .nav-actions {
     display: none;
   }
 
@@ -248,13 +290,12 @@ select {
     margin: 0 8px;
   }
 
-  /* HERO */
   .hero {
     padding: 40px 20px 60px;
   }
 
   .hero h1 {
-    font-size: 34px;
+    font-size: 32px;
     line-height: 1.25;
   }
 
@@ -264,18 +305,20 @@ select {
 
   /* CTA MOBILE */
   .hero-cta-mobile {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 30px;
+    align-items: flex-start;
   }
 
-  .cta-mobile {
+  /* SCAN + REGISTER MOBILE */
+  .cta-mobile,
+  #openWriteMobile {
     width: 100%;
     max-width: 260px;
     padding: 14px;
     font-size: 15px;
-  }
-
-  .cara-kerja {
-    padding-top: 60px;
   }
 
   .container {
